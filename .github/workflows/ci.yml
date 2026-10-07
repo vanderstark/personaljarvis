@@ -177,7 +177,7 @@ jobs:
           echo "name=test-duration-snapshot-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
       - name: Share duration snapshot with every shard
         if: steps.lanes.outputs.python == 'true'
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ${{ steps.snapshot.outputs.name }}
           path: test_durations.json
@@ -354,7 +354,7 @@ jobs:
         run: python scripts/ci/ratchet_tests.py check --baseline scripts/ci/test-baseline-linux.json "out/test-report-linux-$SHARD.json"
       - name: Upload shard report
         if: always()
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: tests-linux-${{ matrix.shard }}
           path: out/
@@ -427,7 +427,7 @@ jobs:
         run: python scripts/ci/ratchet_tests.py check --baseline scripts/ci/test-baseline-windows.json "out/test-report-windows-$SHARD.json"
       - name: Upload shard report
         if: always()
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: tests-windows-${{ matrix.shard }}
           path: out/
@@ -467,7 +467,7 @@ jobs:
         run: python scripts/ci/ratchet_tests.py check --baseline scripts/ci/test-baseline-macos.json out/test-report-macos-${{ matrix.shard }}.json
       - name: Upload shard report
         if: always()
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: tests-macos-${{ matrix.shard }}
           path: out/
